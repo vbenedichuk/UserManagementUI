@@ -1,0 +1,34 @@
+<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bg-dark justify-content-between" >
+  <ul class="navbar-nav flex-row">
+    <li>
+      <a class="navbar-brand" [routerLink]="['']">Home</a>  
+    </li>
+    <li *ngIf="isAuthorized " class="nav-item"  [routerLinkActive]="['link-active']">
+      <a class="nav-link text-light" [routerLink]="['/user-list']">User List</a>
+    </li>
+    <li *ngIf="isAuthorized " class="nav-item"  [routerLinkActive]="['link-active']">
+      <a class="nav-link text-light" [routerLink]="['/role-list']">Roles List</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav flex-row">
+    <li *ngIf="!isAuthorized" class="nav-item"  [routerLinkActive]="['link-active']">
+      <a class="nav-link text-light"  (click)="login()" [routerLink]="['/login']">Login</a>
+    </li>
+    <li *ngIf="isAuthorized" class="nav-item dropdown" >
+      <a class="nav-link dropdown-toggle"
+        href="#" 
+        id="navbarDropdown" 
+        role="button" 
+        data-toggle="dropdown" 
+        aria-haspopup="true" 
+        aria-expanded="false">
+        {{userName}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">User profile</a>
+        <div class="dropdown-divider"></div>
+        <a (click)="logout()" class="dropdown-item" href="#">Logout</a>
+      </div>
+    </li>
+  </ul>
+</header>

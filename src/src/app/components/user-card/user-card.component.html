@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col">
+        <div class="card" *ngIf="formState == formStateEnum.Loading">
+            <div class="card-body">
+                LOADING... TODO: Extract to component.
+            </div>
+        </div>
+        <div class="card" *ngIf="formState != formStateEnum.Loading">
+            <h5 class="card-header" *ngIf="formState == formStateEnum.CreateNew">Create a new user</h5>
+            <h5 class="card-header" *ngIf="formState == formStateEnum.Modify || formState== formStateEnum.View">{{userDetails.UserName}}</h5>
+            <div class="card-body">
+                <app-alert-list [(Alerts)]="alerts"></app-alert-list>
+                <form>
+                    <div class="form-group">
+                        <label for="username">User name</label>
+                        <input [ngClass]="{'is-invalid':userDetails.Validated && !userDetails.UserNameIsValid, 'is-valid':userDetails.Validated && userDetails.UserNameIsValid}" type="text" class="form-control" id="username" name="username" [(ngModel)]="userDetails.UserName" placeholder="Enter user name" required>
+                        <div class="invalid-feedback">
+                            Please provide a username.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" [ngClass]="{'is-invalid':userDetails.PasswordValidated && !userDetails.PasswordIsValid, 'is-valid':userDetails.PasswordValidated && userDetails.PasswordIsValid}"  class="form-control" id="password" name="password" [(ngModel)]="userDetails.Password" placeholder="Enter password">
+                        <div class="invalid-feedback">
+                            Invalid password.
+                            Password should be at least 8 characters including:
+                            <ul>
+                                <li>at least one lower case letter (a-z)</li>
+                                <li>at least one upper case letter (A-Z)</li>
+                                <li>at least one digit (0-9)</li>
+                                <li>at least one special character (?!@#$%^&*)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" [ngClass]="{'is-invalid':userDetails.PasswordMatchValidated && !userDetails.PasswordsMatch, 'is-valid':userDetails.PasswordMatchValidated && userDetails.PasswordsMatch}"  class="form-control" id="password2" name="password2" [(ngModel)]="userDetails.Password2" placeholder="Enter password">
+                        <div class="invalid-feedback">
+                            Passwords do not match.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" [ngClass]="{'is-invalid':userDetails.Validated && !userDetails.EmailIsValid, 'is-valid':userDetails.Validated && userDetails.EmailIsValid}" class="form-control" id="email" name="email" [(ngModel)]="userDetails.Email" placeholder="Enter email" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Email.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone number TODO: REDESIGN!</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="userDetails.PhoneNumber"  placeholder="Enter phone number">
+                    </div>
+                    <a class="btn btn-primary" (click)="save()">Save</a>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

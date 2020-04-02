@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col">
+        <div class="card" *ngIf="formState == formStateEnum.Loading">
+            <div class="card-body">
+                LOADING... TODO: Extract to component.
+            </div>
+        </div>
+        <div class="card" *ngIf="formState != formStateEnum.Loading">
+            <h5 class="card-header" *ngIf="formState == formStateEnum.CreateNew">Create a new role</h5>
+            <div class="card-body">
+                <app-alert-list [(Alerts)]="alerts"></app-alert-list>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Role name</label>
+                        <input [ngClass]="{'is-invalid':roleDetails.Validated && !roleDetails.RoleNameIsValid, 'is-valid':roleDetails.Validated && roleDetails.RoleNameIsValid}" type="text" class="form-control" id="rolename" name="rolename" [(ngModel)]="roleDetails.Name" placeholder="Enter role name" required>
+                        <div class="invalid-feedback">
+                            Please provide a role name.
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" (click)="save()">Save</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
