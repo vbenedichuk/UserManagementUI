@@ -3,6 +3,7 @@ export class UiRoleListItem {
     public Name: string;
     public Validated: boolean = false;
     public RoleNameIsValid: boolean = false;
+    public Selected: boolean = false;
     
     public validate() : boolean{
         let allGood = true;

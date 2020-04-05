@@ -23,12 +23,13 @@ export class UserManagementService {
 
   public get(id:string):Observable<UiUserDetails>{
     return this.authService.get(this.apiUrl + '/api/User/' + id)
-      .pipe(map(result => {
+      .pipe(map(result => {        
         let user = new UiUserDetails();
         user.Id = result.Id;
         user.PhoneNumber = result.PhoneNumber;
         user.UserName = result.UserName;
         user.Email = result.Email;
+        user.Roles = result.Roles; 
         return user;
       }));
   }
