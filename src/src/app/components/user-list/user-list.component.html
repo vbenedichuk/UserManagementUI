@@ -25,10 +25,7 @@
                         EMail
                     </th>
                     <th>
-                        Phone number
-                    </th>
-                    <th>
-                        Phone confirmed
+                        Roles
                     </th>
                     <th>
                         Actions
@@ -39,8 +36,7 @@
                 <tr *ngFor="let user of UserList.Items">
                     <td>{{user.UserName}}</td>
                     <td>{{user.Email}}</td>
-                    <td>{{user.PhoneNumber}}</td>
-                    <td>{{user.PhoneNumberConfirmed}}</td>
+                    <td>[TODO]</td>
                     <td class="text-nowrap"><button type="button" class="btn btn-primary mr-1" [routerLink]="['/user-list/'+user.Id]"><span class="fa fa-edit"></span></button>
                         <button type="button" class="btn btn-danger"  (click)="confirmRemove(user, content)"><span class="fa fa-trash-o"></span></button></td>
                 </tr>

@@ -3,10 +3,10 @@
     <li>
       <a class="navbar-brand" [routerLink]="['']">Home</a>  
     </li>
-    <li *ngIf="isAuthorized " class="nav-item"  [routerLinkActive]="['link-active']">
+    <li *ngIf="isAuthorized" class="nav-item"  [routerLinkActive]="['link-active']">
       <a class="nav-link text-light" [routerLink]="['/user-list']">User List</a>
     </li>
-    <li *ngIf="isAuthorized " class="nav-item"  [routerLinkActive]="['link-active']">
+    <li *ngIf="isAuthorized" class="nav-item"  [routerLinkActive]="['link-active']">
       <a class="nav-link text-light" [routerLink]="['/role-list']">Roles List</a>
     </li>
   </ul>

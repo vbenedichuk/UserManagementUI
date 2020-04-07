@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,14 +31,7 @@ import { RoleCardComponent } from './components/role-card/role-card.component';
     AppRoutingModule,
     FormsModule,
     AuthModule.forRoot(), 
-    NgbModule,
-    RouterModule.forRoot([{path: "", component:HomeComponent, pathMatch: 'full' },
-      { path: 'user-list', component: UserListComponent },
-      { path: 'user-list/:id', component: UserCardComponent},
-      { path: 'role-list', component: RoleListComponent },
-      { path: 'role-list/:id', component: RoleCardComponent},
-      { path: '**', redirectTo: '' }
-    ])
+    NgbModule
   ],
   providers: [OidcSecurityService],
   bootstrap: [AppComponent]

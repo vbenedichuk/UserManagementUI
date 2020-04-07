@@ -4,11 +4,14 @@ import { Observable ,  Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private roles = [];
 
   isAuthorized = false;
 
@@ -22,7 +25,7 @@ export class AuthService {
         redirect_url: this.originUrl + 'callback',
         client_id: 'UserManagement',
         response_type: 'code',
-        scope: 'openid profile email UserManagement',
+        scope: 'openid profile email role UserManagement',
         post_logout_redirect_uri: this.originUrl,
         forbidden_route: '/forbidden',
         unauthorized_route: '/unauthorized',
@@ -77,6 +80,12 @@ export class AuthService {
   public initAuth() {
 
   }
+
+  public isInRole(role:string) : boolean{
+    return this.roles.some(element => {
+      return element === role;
+    });
+  }
   
   private onAuthorizationResultComplete(authorizationResult: AuthorizationResult) {
     console.log('Auth result received AuthorizationState:'
@@ -90,6 +99,13 @@ export class AuthService {
         } else {
             window.location.href = '/unauthorized';
         }
+    }
+    else{
+      this.oidcSecurityService.getUserData().subscribe(
+        result =>{
+          if(result != null && result.role != null){
+            this.roles = result.role;
+      }});
     }
   }
 
@@ -106,12 +122,10 @@ export class AuthService {
   }
 
   login() {
-      console.log('start login');
       this.oidcSecurityService.authorize();
   }
 
   logout() {
-      console.log('start logoff');
       this.oidcSecurityService.logoff();
   }
 
