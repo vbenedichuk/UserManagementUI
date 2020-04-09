@@ -4,7 +4,6 @@ import { UiRoleListItem } from './UiRoleListItem';
 export class UiUserDetails extends UiUserListItem {
     public Password: string;
     public Password2: string;
-    public Roles: UiRoleListItem[];
 
     public PasswordIsValid: boolean = true;
     public PasswordsMatch: boolean = true;

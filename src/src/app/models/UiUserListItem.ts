@@ -1,3 +1,5 @@
+import { UiRoleListItem } from '.';
+
 export class UiUserListItem {
     public Id: string;
     public UserName: string;
@@ -5,6 +7,7 @@ export class UiUserListItem {
     public Email: string;
     public PhoneNumber: string;
     public PhoneNumberConfirmed: string;
+    public Roles: UiRoleListItem[];
 
     public Validated: boolean = false;
     public UserNameIsValid: boolean = true;

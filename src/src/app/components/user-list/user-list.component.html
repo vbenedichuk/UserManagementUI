@@ -36,7 +36,7 @@
                 <tr *ngFor="let user of UserList.Items">
                     <td>{{user.UserName}}</td>
                     <td>{{user.Email}}</td>
-                    <td>[TODO]</td>
+                    <td><span *ngFor="let role of user.Roles" class="mr-1 badge badge-secondary">{{role.Name}}</span></td>
                     <td class="text-nowrap"><button type="button" class="btn btn-primary mr-1" [routerLink]="['/user-list/'+user.Id]"><span class="fa fa-edit"></span></button>
                         <button type="button" class="btn btn-danger"  (click)="confirmRemove(user, content)"><span class="fa fa-trash-o"></span></button></td>
                 </tr>

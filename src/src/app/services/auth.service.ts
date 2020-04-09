@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
   private roles = [];
-
   isAuthorized = false;
 
   constructor(private oidcSecurityService: OidcSecurityService,
@@ -29,7 +27,8 @@ export class AuthService {
         forbidden_route: '/forbidden',
         unauthorized_route: '/unauthorized',
         silent_renew: true,
-        silent_renew_url: this.originUrl + '/silent-renew.html',
+        silent_renew_url: this.originUrl + 'silent-renew.html',
+        silent_renew_offset_in_seconds: 15,
         history_cleanup_off: true,
         auto_userinfo: true,
         log_console_warning_active: true,
@@ -65,7 +64,6 @@ export class AuthService {
         console.log(isAuthorized);
         this.isAuthorized = isAuthorized;
       }));
-  
   
       this.oidcSecurityService.onAuthorizationResult.subscribe(
         (authorizationResult: AuthorizationResult) => {
