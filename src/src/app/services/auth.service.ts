@@ -4,7 +4,6 @@ import { Observable ,  Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +81,7 @@ export class AuthService {
   }
 
   public isInRole(role:string) : boolean{
-    return this.roles.some(element => {
+    return this.roles != null && this.roles.some(element => {
       return element === role;
     });
   }
@@ -104,7 +103,7 @@ export class AuthService {
       this.oidcSecurityService.getUserData().subscribe(
         result =>{
           if(result != null && result.role != null){
-            this.roles = result.role;
+            this.roles = result.role == null || Array.isArray(result.role) ? result.role : [result.role];
       }});
     }
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
 import {Router} from "@angular/router"
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-nav-menu',
@@ -14,6 +15,7 @@ export class NavMenuComponent implements OnInit {
   private isAuthorizedSubscription: Subscription = new Subscription();
   private userDataSubscription: Subscription = new Subscription();
   private userName:string = "";
+  private userId:string = "";
 
   constructor(private authService: AuthService, private router: Router) { 
     this.isAuthorizedSubscription = this.authService.getIsAuthorized().subscribe(
@@ -31,6 +33,7 @@ export class NavMenuComponent implements OnInit {
         if(userInfo!=null) {
           console.log("UserInfo", userInfo); 
           this.userName = userInfo.name;
+          this.userId = userInfo.sub;
         }
       });
 

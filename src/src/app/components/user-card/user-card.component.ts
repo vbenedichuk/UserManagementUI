@@ -7,7 +7,6 @@ import { UiResponse, UiResponseMessage } from 'src/app/models/UiResponse';
 import { UserManagementService } from 'src/app/services/user-management.service';
 import { RoleManagementService } from 'src/app/services/role-management.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-user-card',
@@ -23,6 +22,7 @@ export class UserCardComponent implements OnInit {
   private alerts: UiResponseMessage[];
 
   constructor(
+    private authService: AuthService,
     private userService: UserManagementService,
     private roleService: RoleManagementService,
     private router: Router,
@@ -32,12 +32,14 @@ export class UserCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.roleService.getRoles().subscribe(result =>
-      {
-        this.roleList = result;
-      }, error =>{
-        console.error(error);
-      });
+    if(this.authService.isInRole('Admin')){
+      this.roleService.getRoles().subscribe(result =>
+        {
+          this.roleList = result;
+        }, error =>{
+          console.error(error);
+        });
+    }
     let id = this.route.snapshot.paramMap.get('id');
     if (id != 'new' && id != null) {
       this.userService.get(id).subscribe(result => {
@@ -91,7 +93,6 @@ export class UserCardComponent implements OnInit {
           this.alerts = responseError.Messages;
         }
       });
-      console.log("VALID!");
     }
     else{
       console.log("NOT VALID!");

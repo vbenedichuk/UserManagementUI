@@ -3,6 +3,7 @@ import { UiResponseMessage } from 'src/app/models/UiResponse';
 import { RoleManagementService } from 'src/app/services/role-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UiRoleListItem } from 'src/app/models';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-role-card',
@@ -53,10 +54,6 @@ export class RoleCardComponent implements OnInit {
               this.alerts = error.error.Messages;
             }
           });
-      console.log("VALID!");
-    }
-    else{
-      console.log("NOT VALID!");
     }
   }
 

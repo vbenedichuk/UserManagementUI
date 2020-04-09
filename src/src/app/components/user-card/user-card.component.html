@@ -45,7 +45,7 @@
                             Please provide a valid Email.
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="authService.isInRole('Admin')">
                         <label>Roles</label>
                         <div>
                             <a class="btn btn-primary mr-1" (click)="showRolesSelector(rolesModal);"><span class="fa fa-plus"></span></a>

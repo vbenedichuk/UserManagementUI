@@ -13,6 +13,7 @@ const routes: Routes = [{path: "", component:HomeComponent, pathMatch: 'full' },
 { path: 'user-list/:id', canActivate:[AdministrationGuard], component: UserCardComponent},
 { path: 'role-list', canActivate:[AdministrationGuard], component: RoleListComponent },
 { path: 'role-list/:id', canActivate:[AdministrationGuard], component: RoleCardComponent},
+{ path: 'user-profile/:id', component: UserCardComponent},
 { path: '**', redirectTo: '' }
 ];
 
