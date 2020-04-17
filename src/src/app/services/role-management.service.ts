@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { AuthService } from './auth.service';
 import { UiRoleListItem, UiList } from '../models';
-import { Observable, Subscription, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { UiResponse } from '../models/UiResponse';
 
 @Injectable({
