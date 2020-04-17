@@ -1,2 +1,2 @@
 # UserManagementUI
-User management user interface
+User management interface
