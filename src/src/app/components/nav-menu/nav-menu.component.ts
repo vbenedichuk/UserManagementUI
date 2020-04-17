@@ -14,10 +14,10 @@ export class NavMenuComponent implements OnInit {
   public isAuthorized = false;
   private isAuthorizedSubscription: Subscription = new Subscription();
   private userDataSubscription: Subscription = new Subscription();
-  private userName:string = "";
-  private userId:string = "";
+  public userName:string = "";
+  public userId:string = "";
 
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(public authService: AuthService, private router: Router) { 
     this.isAuthorizedSubscription = this.authService.getIsAuthorized().subscribe(
       (isAuthorized: boolean) => {
         console.log("getIsAuthorized fired.");

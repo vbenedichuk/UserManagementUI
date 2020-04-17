@@ -12,10 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class RoleCardComponent implements OnInit {
-  private formStateEnum: any = FormState;
-  private formState: FormState = FormState.Loading;
+  public formStateEnum: any = FormState;
+  public formState: FormState = FormState.Loading;
   public alerts: UiResponseMessage[];
-  private roleDetails: UiRoleListItem;
+  public roleDetails: UiRoleListItem;
 
   constructor(
     private router: Router,
