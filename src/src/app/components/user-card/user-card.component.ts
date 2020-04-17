@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { ParamMap, ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UiUserDetails, UiRoleListItem, UiList } from 'src/app/models';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';

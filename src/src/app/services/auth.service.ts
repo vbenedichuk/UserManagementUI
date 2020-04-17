@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy, Inject } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { OidcSecurityService, OpenIdConfiguration, AuthWellKnownEndpoints, AuthorizationResult, AuthorizationState } from 'angular-auth-oidc-client';
 import { Observable ,  Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';

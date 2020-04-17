@@ -3,6 +3,6 @@ export class UiResponseMessage{
     public Message: string;
 }
 export class UiResponse {
-    public Success: Boolean;
+    public Success: boolean;
     public Messages: UiResponseMessage[];
 }

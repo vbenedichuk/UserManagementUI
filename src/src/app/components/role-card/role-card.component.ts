@@ -3,7 +3,6 @@ import { UiResponseMessage } from 'src/app/models/UiResponse';
 import { RoleManagementService } from 'src/app/services/role-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UiRoleListItem } from 'src/app/models';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-role-card',

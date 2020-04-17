@@ -1,5 +1,4 @@
 import { UiUserListItem } from './UiUserListItem';
-import { UiRoleListItem } from './UiRoleListItem';
 
 export class UiUserDetails extends UiUserListItem {
     public Password: string;

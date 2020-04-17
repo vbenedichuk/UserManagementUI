@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
 import {Router} from "@angular/router"
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-nav-menu',
