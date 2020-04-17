@@ -15,14 +15,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class UserCardComponent implements OnInit {
-  private formStateEnum: any = FormState;
-  private formState: FormState = FormState.Loading;
-  private userDetails?: UiUserDetails;
-  private roleList: UiList<UiRoleListItem>;
-  private alerts: UiResponseMessage[];
+  public formStateEnum: any = FormState;
+  public formState: FormState = FormState.Loading;
+  public userDetails?: UiUserDetails;
+  public roleList: UiList<UiRoleListItem>;
+  public alerts: UiResponseMessage[];
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private userService: UserManagementService,
     private roleService: RoleManagementService,
     private router: Router,

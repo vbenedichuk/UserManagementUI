@@ -10,8 +10,8 @@ import { UserManagementService } from 'src/app/services/user-management.service'
 })
 export class UserListComponent implements OnInit {
 
-  private ActionUser: UiUserListItem;
-  private UserList: UiList<UiUserListItem> = null;
+  public ActionUser: UiUserListItem;
+  public UserList: UiList<UiUserListItem> = null;
 
   constructor(
     private userService: UserManagementService,

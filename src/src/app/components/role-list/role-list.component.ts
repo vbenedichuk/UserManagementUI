@@ -10,9 +10,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./role-list.component.scss']
 })
 export class RoleListComponent implements OnInit {
-
-  private RoleList: UiList<UiRoleListItem> = null;
-  private ActionItem: UiRoleListItem;
+  
+  public RoleList: UiList<UiRoleListItem> = null;
+  public ActionItem: UiRoleListItem;
 
   constructor(private roleService: RoleManagementService,
     private modalService: NgbModal) { }
