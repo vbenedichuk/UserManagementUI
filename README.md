@@ -1,2 +1,2 @@
 # UserManagementUI
-User management interface
+User Interface for https://github.com/vbenedichuk/UserManagementService
