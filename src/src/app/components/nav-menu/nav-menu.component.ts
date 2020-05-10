@@ -35,7 +35,6 @@ export class NavMenuComponent implements OnInit {
           this.userId = userInfo.sub;
         }
       });
-
   }
 
   ngOnDestroy(): void {
