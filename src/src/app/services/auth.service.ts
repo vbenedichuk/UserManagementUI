@@ -19,7 +19,7 @@ export class AuthService {
     @Inject('AUTH_URL') private authUrl: string,) { 
       const openIdConfiguration: OpenIdConfiguration = {
         stsServer: this.authUrl,
-        redirect_url: this.originUrl + 'callback',
+        redirect_url: this.originUrl,
         client_id: 'UserManagement',
         response_type: 'code',
         scope: 'openid profile email role UserManagement',
