@@ -26,7 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/silint-renew.html"
+              "src/silent-renew.html"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -97,7 +97,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/silint-renew.html"
+              "src/silent-renew.html"
             ],
             "styles": [
               "src/styles.scss"
