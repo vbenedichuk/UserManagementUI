@@ -50,6 +50,5 @@ export class RoleManagementService {
               return result as UiResponse
           }));
     }
-    return null;
   }
 }
